@@ -1,0 +1,539 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --bg-color-light: #ffffff;
+  --bg-color-dark: #121212;
+  --primary-color-light: #121213;
+  --primary-color-dark:#292220;
+  --text-color-light: black;
+  --text-color-dark: #f1f1f1;
+  --card-bg-light: #995c40;
+  --card-bg-dark: #333333;
+  --button-bg-light: #213547;
+  --button-bg-dark: #2c4860;
+  --border-color-light: rgb(156, 163, 175);
+  --border-color-dark: rgb(73, 83, 93);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--bg-color-light);
+  color: black;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+header {
+  width: 100vw;
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color:#885239;/* Set your desired navbar background color */
+  padding: 1rem;
+  color:#FAF3E0;
+}
+
+body.dark-theme header {
+  background-color: var(--bg-color-dark);
+}
+
+header ul {
+  width: 40%;
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color:#FAF3E0
+}
+
+header ul li {
+  list-style: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s ease;
+  color:#FAF3E0
+}
+header ul li:active {
+  transform: scale(0.95); /* Slightly shrink on click */
+  color:#FAF3E0
+}
+
+li a {
+  color: var(--text-color-light);
+  transition: all 0.3s;
+  padding: 2px 10px;
+  border-radius: 10px;
+  color:#FAF3E0
+}
+
+body.dark-theme li a {
+  color: var(--text-color-dark);
+  color:#FAF3E0
+}
+
+li a:hover {
+  color: var(--primary-color-light);
+}
+
+li .login {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+header h2 {
+  margin-left: 1rem;
+}
+
+section {
+  height: 90vh;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.home {
+  display: flex;
+  margin-top: 6rem;
+  gap: 10rem;
+  position: relative;
+}
+
+.home .left h1 {
+  margin-bottom: 1rem;
+}
+
+.home button {
+  color: white;
+  border: none;
+  background-color:#0f0f0e; 
+  width: 200px;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border-color: #121212;
+}
+
+body.dark-theme .home button {
+  background-color: var(--button-bg-dark);
+}
+
+.home a:hover {
+  color: white;
+  background-color: var(--button-bg-dark);
+}
+
+.home .left h5 {
+  margin: 2rem 0;
+}
+
+.bg svg {
+  position: absolute;
+  bottom: 0;
+}
+
+.card-container {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, 19rem);
+  cursor: pointer;
+}
+
+.card {
+  text-align: center;
+  width: 300px;
+  border-radius: 10px;  
+  display: flex  ;
+      flex-direction: column;
+}
+.card img{
+  width: 100%;
+  height: 220px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  margin: 0;
+}
+
+.card-body {
+  background-color: var(--card-bg-light);
+  padding: 1.5rem;
+  border-bottom-left-radius:10px ;
+  border-bottom-right-radius: 10px;
+}
+
+body.dark-theme .card-body {
+  background-color: var(--card-bg-dark);
+}
+
+.card-body .title {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FAF3E0;
+}
+
+.card-body .icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-body .timer {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.action {
+  display: flex;
+  font-size: 19px;
+  justify-content: space-between;
+  align-items: center;
+  width: 45px;
+}
+
+.editIcon {
+  color: white;
+  font-size: 18px;
+}
+
+body.dark-theme .editIcon {
+  color: rgb(10, 119, 187);
+}
+
+.action a:hover {
+  color: var(--text-color-light);
+}
+
+.deleteIcon {
+  color: #FAF3E0;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+body.dark-theme .deleteIcon {
+  color: var(--delete-icon-dark);
+}
+
+/* When delete icon is clicked */
+.deleteIcon:active {
+  transform: scale(1.2);
+  color: var(--delete-icon-light);
+}
+
+/* When hovering over the delete icon */
+.deleteIcon:hover {
+  color: var(--delete-icon-light);
+  transform: scale(1.1);
+}
+
+.modal {
+  position: fixed;
+  top: 34%;
+  z-index: 10;
+  padding: 2rem;
+  border-radius: 6px;
+  border: none;
+  left: 30%;
+  width: 40%;
+  background-color: white;
+}
+
+body.dark-theme .modal {
+  background-color: #333333;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 9;
+}
+
+.form {
+  width: 71%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-header {
+  background-color: var(--card-bg-light);
+  height: 3px;
+  text-align: center;
+}
+
+.form-control {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  
+}
+.form-control label{
+  color:#121212
+}
+.form-control .input {
+  flex-basis: 70%;
+  border: 1px solid;
+  border-radius: 4px;
+  height: 30px;
+  padding: 2px;
+  color: black;
+  background-color: #ffffff;
+
+}
+
+body.dark-theme .form-control .input {
+  border: 1px solid var(--border-color-dark);
+}
+
+.form-control .input-textarea {
+  border: 1px solid;
+  border-radius: 4px;
+  flex-basis: 70%;
+  padding: 2px;
+}
+
+body.dark-theme .form-control .input-textarea {
+  border: 1px solid var(--border-color-dark);
+}
+
+.form button {
+  margin: 2rem 0;
+  border: none;
+  background-color: var(--card-bg-light);
+  font-size: 14px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .form button {
+  background-color: var(--card-bg-dark);
+}
+
+.form p {
+  cursor: pointer;
+  display: inline;
+  border-bottom: 1px solid #307bbd;
+  color: rga(4, 136, 170);
+  font-size: 14px;
+  color: #307bbd;
+}
+
+.form .error {
+  color: red;
+  font-size: 13px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.add-recipe {
+  width: 100%;
+}
+
+.recipe {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+}
+
+.footer {
+  width: 100vw;
+  height: 30px;
+  color: white;
+  background-color: #995c40;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  margin-top: 1rem;
+  padding-top: 2px;
+  font-size: 14px;
+}
+
+body.dark-theme .footer {
+  background-color: #885239;
+}
+
+.outer-container {
+  width: 70%;
+  margin: 5rem auto;
+}
+
+.outer-container .profile {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.outer-container .title {
+  margin: 1rem 0;
+  text-transform: uppercase;
+}
+
+.outer-container .recipe-details {
+  display: flex;
+  gap: 3rem;
+  align-items: justify;
+  margin-top: 1rem;
+}
+
+.active {
+  color: var(--text-color-light) !important;
+  background-color: var(--primary-color-light);
+  background-color: white;
+}
+
+#root{
+  width: 100%;
+}
+.edit-recipe-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color-light);
+}
+
+body.dark-theme .edit-recipe-container {
+  background-color: var(--bg-color-dark);
+}
+
+.edit-recipe-form {
+  width: 95%;
+  max-width: 1000px; /* So it doesn't stretch too much on big screens */
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: var(--card-bg-light);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+
+  transition: background-color 0.3s ease;
+}
+
+body.dark-theme .edit-recipe-form {
+  background-color: var(--card-bg-dark);
+}
+
+
+body.dark-theme .edit-recipe-form {
+  background-color: var(--card-bg-dark);
+}
+
+.edit-recipe-form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-color-light);
+}
+
+body.dark-theme .edit-recipe-form h2 {
+  color: var(--primary-color-dark);
+}
+
+.edit-recipe-form .form-control {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.edit-recipe-form .form-control label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color-light);
+}
+
+body.dark-theme .edit-recipe-form .form-control label {
+  color: var(--text-color-dark);
+}
+
+.edit-recipe-form .input,
+.edit-recipe-form .input-textarea {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid var(--border-color-light);
+  border-radius: 6px;
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+body.dark-theme .edit-recipe-form .input,
+body.dark-theme .edit-recipe-form .input-textarea {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+  border: 1px solid var(--border-color-dark);
+}
+
+.edit-recipe-form .input-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.edit-recipe-form input[type="file"] {
+  padding: 8px 0;
+}
+
+.edit-recipe-form button {
+  background-color: var(--button-bg-light);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-theme .edit-recipe-form button {
+  background-color: var(--button-bg-dark);
+}
+
+.edit-recipe-form button:hover {
+  background-color: var(--primary-color-light);
+}
+
+body.dark-theme .edit-recipe-form button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+/* Optional: Add slight focus effect on input */
+.edit-recipe-form .input:focus,
+.edit-recipe-form .input-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color-light);
+}
+
+body.dark-theme .edit-recipe-form .input:focus,
+body.dark-theme .edit-recipe-form .input-textarea:focus {
+  border-color: var(--primary-color-dark);
+}
